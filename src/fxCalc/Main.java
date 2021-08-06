@@ -53,7 +53,7 @@ public class Main extends Application{
         mainPane.setPadding(insets);
         mainPane.setConstraints(resultsTextField,0,0);
 
-        //adds buttons 7-9 and division sign to top row and adds top row to
+        //adds buttons 7-9 and division sign to top row and adds top row to mainpane
 
         topRow = new HBox(5);
         topRow.setAlignment(Pos.CENTER);
@@ -70,7 +70,7 @@ public class Main extends Application{
         }
         mainPane.setConstraints(topRow,0,1);
 
-        //adds buttons 4-6 and multiplication sign to middle row and adds middle
+        //adds buttons 4-6 and multiplication sign to middle row and adds middle row to the mainpane
 
         middleRow = new HBox(5);
         middleRow.setAlignment(Pos.CENTER);
@@ -95,7 +95,7 @@ public class Main extends Application{
 
         mainPane.setConstraints(lowerRow,0,3);
 
-        //adds 0, . , = and + to the bottom row and adds the bottom row to the
+        //adds 0, . , = and + to the bottom row and adds the bottom row to the bottom row
 
         bottomRow = new HBox(5);
         bottomRow.setAlignment(Pos.CENTER);
@@ -109,7 +109,7 @@ public class Main extends Application{
         mainPane.setConstraints(bottomRow,0,4);
 
 
-        //sets preffered size for all buttons and adds action listeners to each
+        //sets preferred size for all buttons
 
         for(int x =0; x < 16; x++){
 
@@ -117,15 +117,13 @@ public class Main extends Application{
         }
 
         for (int x = 0; x < 14; x++) {
-            // We need a final variable for the event handler
+            //  need a final variable for the event handler
             final int index = x;
             if(x == 3 || x == 7 || x == 11) {
-                // Skip the operation buttons, we won't hit 15 (+) here since the loop only goes to 13 (.)
+                // this Skips the operation buttons because  we won't hit 15 (+) here since the loop only goes to 13 (.)
                 continue;
             }
             // This will create one unique event handler for each button.
-            // Since we have the final index variable here we don't need to
-            // iterate over the buttons to find the correct template position - we already know it
             numButtons[x].setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
@@ -135,7 +133,7 @@ public class Main extends Application{
             });
         }
 
-        // Add action handlers for the operation buttons
+        // Adds action handlers for the operation buttons
         for (int x : new int[]{3, 7, 11, 15}) {
             numButtons[x].setOnAction(new EventHandler<ActionEvent>() {
                 @Override
@@ -148,7 +146,7 @@ public class Main extends Application{
             });
         }
 
-        // Add action handler for the equals button
+        // Adds action handler for the equals button
         numButtons[14].setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(final ActionEvent event) {
